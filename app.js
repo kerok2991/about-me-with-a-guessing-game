@@ -53,6 +53,8 @@ function questions() {
           answer: 'Y',
           response: 'I have one older brother but unfortunatley we lost touch 14 years ago :( '
         }
+
+        
         
       ];
 
@@ -74,3 +76,31 @@ function questions() {
 
 }
 document.getElementById("begin").addEventListener("click", guessingGame);
+
+function userGuessingGame(){
+  const correctAnswer = 10;
+  let userLives = 4;
+  let userAnswer;
+  while (userLives > 0){
+      userAnswer = prompt("Guess a number between 1 and 100");
+      if(userAnswer < correctAnswer){
+          alert('too low');
+          userLives -= 1
+      } 
+      else if(userAnswer > correctAnswer){
+          alert('too high');
+          userLives -= 1
+      } 
+      else if(userAnswer === correctAnswer){
+          alert(`You got it right! the correct answer is: ${correctAnswer}`);
+      }
+      else {
+          alert('This is an invalid input');
+      } 
+      if(userLives === 0){
+        alert(`You ran out of lives! ${correctAnswer}`);
+        break;
+    }
+  }
+}
+userGuessingGame();
