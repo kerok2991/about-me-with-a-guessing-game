@@ -1,53 +1,76 @@
 'use strict';
 
-function guessingGame() {
-
-  let usrAnswer; 
-  let feedbackString = ''; 
-  const questionArray = [
-    {
-      question: `DO I HAVE ANY PETS?  (Y/N)`,
-      answer: 'Y',
-      info: `I have one cat named 'Cynar' (CHEE-nar). I adopted him in May 2021. He is named after of one of my favorite bittersweet Italian liqueurs. Unlike the liqueur, MY Cynar is only sweet.`
-    }
-    {
-      question: `DO I LIVE ON THE EAST COAST?  (Y/N)`,
-      answer: 'N',
-      info: `I live on the WEST Coast, in Seattle, Washington. (I did live in Georgia for five years, though.)`
-    }
-    {
-      question: `AM I CLEVER?  (Y/N)`,
-      answer: undefined,
-      info: `That was a trick question. Cleverness is subjective and relative, just like beauty and meaning, so whether you think I am clever or you don't, you are correct either way.`
-    }
-    {
-      question: `DO I WORK ON CARS FOR FUN?  (Y/N)`,
-      answer: 'N',
-      info:  `I don't work on cars for fun. I currently enjoy training my cat Cynar, strength training, and DIY home improvement projects for my small studio.`
-    }
-    {
-      question: `Last question! AM I AN ALGORITHM?  (Y/N)`,
-      answer: 'Y',
-      info: `From a materialistic lens, ALL of our minds are nothing but algorithms. And if our minds are WHO we are, then we are ALL algorithms. The upshot of this is that every impression we form of another person is literally an approximated model of THAT person's algorithms that we have assembled in our mind! So, even after we physically die, as long as someone somewhere is alive and capable of thinking, 'If ${userName} were here, they would totally say/do/think _____ right now!', there is certainly a part of YOU that lives on despite your body's death.`
-    }
-  ];
-
-  usrAnswer = prompt(); // local scope 
-  usrAnswer = usrAnswer.toUpperCase();
-  if (usrAnswer === 'Y' || usrAnswer === 'YES') { // usrAnswer is correct 
-    feedbackString = "Correct! ";
-  } else { // usrAnswer is wrong or invalid
-    feedbackString = "Nope! ";
-  } 
-  feedbackString += ""; // fact about me
-  alert(feedbackString); // displays the compiled feedback message to user
-
-  // usrAnswer = prompt(`DO I LIVE ON THE EAST COAST?  (Y/N)`);
-  // usrAnswer = prompt(`AM I CLEVER?  (Y/N)`);
-  // usrAnswer = prompt(`DO I WORK ON CARS FOR FUN?  (Y/N)`);
-  // usrAnswer = prompt(`Last question! AM I AN ALGORITHM?  (Y/N)`);
-
-
+let userName;
+while (userName === undefined) {
+  userName = prompt("Welcome, My name is Kyrillos but much easier to call me Kero, Who are you?");
+  if (userName === null) {
+    alert("so secretive, I guess we'll keep it that way! Later!");
+    break;
+  } else if (userName) {
+    alert('Hello, Bonjour, Hola, Zdravstvuyte, Nǐn hǎo, Salve, Konnichiwa, Guten Tag, Olá: ' + userName.toUpperCase() + '!  Thanks for taking the time to check out my page, much love!');
+  } else {
+    alert("Could not comprehend, my bad..");
+  }
 };
 
+function guessingGame() {
+
+  if (userName === null) { 
+    userName = "Anonymous";
+  };
+  questions()
+  };
+
+  // global variables
+let userInput; // changed the name to userInput
+let responseString = ''; //responseString
+
+function questions() {
+    
+    const askUserQuestions = [ 
+        {
+          question: 'Have i lived in America all my life? (Y/N)',
+          answer: 'Y',
+          response: 'Even though my ethnicity is Egyptian, I have lived in America all my life. Fun fact though, I have visted Egypt in 1999. '
+        },
+        {
+          question: 'Do I speak and understand more than one language?  (Y/N)',
+          answer: 'Y',
+          response: 'I also can speak and understand Arabic.'
+        },
+        {
+          question: 'Do I travel a lot? (Y/N)',
+          answer: 'N',
+          response: 'I would love to travel all over the world if I could, hopefully one day I will be able to do exactly just that!'
+        },
+        {
+          question: 'Do I know how to dance? (Y/N)',
+          answer: 'N',
+          response: 'I would love to learn how to dance, two-step in particular.'
+        },
+        {
+          question: 'Do I have any sibblings? (Y/N)',
+          answer: 'Y',
+          response: 'I have one older brother but unfortunatley we lost touch 14 years ago :( '
+        }
+        
+      ];
+
+      for (let i = 0; i < askUserQuestions.length; i++) {
+        userInput = prompt(askUserQuestions[i].question);
+        userInput = userInput.toUpperCase();
+        if (userInput === askUserQuestions[i].answer) { 
+          responseString = "Correct! ";
+        } else if (userInput === null) {
+          break; 
+        } else { 
+          responseString = "Incorrect! ";
+        }
+        responseString += askUserQuestions[i].response; 
+        alert(responseString);
+    } 
+    //console.log('wow! I'm so thankful you took the time learn more about me: ' + userName.toUpperCase());
+    alert('wow! Im so thankful you took the time learn more about me: ' + userName.toUpperCase());
+
+}
 document.getElementById("begin").addEventListener("click", guessingGame);
