@@ -1,5 +1,5 @@
 'use strict';
-
+let totalScore = 0;
 let userName;
 while (userName === undefined) {
   userName = prompt("Welcome, My name is Kyrillos but much easier to call me Kero, Who are you?");
@@ -63,6 +63,7 @@ function questions() {
         userInput = userInput.toUpperCase();
         if (userInput === askUserQuestions[i].answer) { 
           responseString = "Correct! ";
+          totalScore += 1;
         } else if (userInput === null) {
           break; 
         } else { 
@@ -78,7 +79,7 @@ function questions() {
 document.getElementById("begin").addEventListener("click", guessingGame);
 
 function userGuessingGame(){
-  const correctAnswer = 10;
+  const correctAnswer = 9;
   let userLives = 4;
   let userAnswer;
   while (userLives > 0){
@@ -91,8 +92,10 @@ function userGuessingGame(){
           alert('too high');
           userLives -= 1
       } 
-      else if(userAnswer === correctAnswer){
+      else if(userAnswer == correctAnswer){
           alert(`You got it right! the correct answer is: ${correctAnswer}`);
+          totalScore += 1
+          break;
       }
       else {
           alert('This is an invalid input');
@@ -104,3 +107,33 @@ function userGuessingGame(){
   }
 }
 userGuessingGame();
+
+function guessQuestion()
+{
+    let numberOfAttempts = 0;
+    let correct = true;
+    while (numberOfAttempts < 6 && correct)
+    {
+        let userAnswer = prompt("Try guessing one of the 10 things that I like?");
+        let topTen = ['my dog', 'shows', 'movies', 'computers', 'coding', 'car shows', 'harry potter', 'music', 'anime', 'vaping'];
+        for (let i = 0; i < topTen.length; i++)
+        {
+            if(userAnswer.toLowerCase() == topTen[i])
+            {
+                alert('You got it right.');
+                correct = false;
+                totalScore += 1;
+                break;
+            }
+        }
+        
+        if(correct)
+        {
+            numberOfAttempts++;
+            alert('Sorry try again!');
+        }
+    }
+}
+guessQuestion();
+
+alert(`Your total score is: ${totalScore}`)
