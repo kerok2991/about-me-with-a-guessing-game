@@ -72,7 +72,7 @@ function questions() {
         responseString += askUserQuestions[i].response; 
         alert(responseString);
     } 
-    //console.log('wow! I'm so thankful you took the time learn more about me: ' + userName.toUpperCase());
+     console.log('wow! Im so thankful you took the time learn more about me: ' + userName.toUpperCase());
     alert('wow! Im so thankful you took the time learn more about me: ' + userName.toUpperCase());
 
 }

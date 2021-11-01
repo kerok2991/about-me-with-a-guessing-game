@@ -31,3 +31,6 @@ Features to add:
 - Add at least one more CSS style.
 - Optional: put questions, answers, responses for first 5 questions into arrays (or array of arrays). Use for loop utilizing it.
 - Optional: Make the 6th question a random number to guess.
+
+## Lab 04:
+Driver: kyrillos khalil Navigator: Jordan Watts
