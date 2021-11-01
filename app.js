@@ -69,7 +69,7 @@ function questions() {
         } else { 
           responseString = "Incorrect! ";
         }
-        responseString += askUserQuestions[i].response + ` Current Score: ${totalScore}/7`; 
+        responseString += askUserQuestions[i].response + ` Current Score: ${totalScore} out of 7 points`; 
         alert(responseString);
     } 
      console.log('wow! Im so thankful you took the time learn more about me: ' + userName.toUpperCase());
